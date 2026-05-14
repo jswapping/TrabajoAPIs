@@ -1,7 +1,5 @@
 package ollama_java;
 
-
-import com.google.gson.JsonObject;
 import org.w3c.dom.Document;
 
 public class ColourLovers {

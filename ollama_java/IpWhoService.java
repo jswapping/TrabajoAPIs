@@ -1,9 +1,6 @@
-package implementaciones_api;
+package ollama_java;
 
 import com.google.gson.JsonObject;
-
-import ollama_java.ApiClient;
-import ollama_java.JsonUtils;
 
 public class IpWhoService {
     private static final String URL = "http://ipwho.is/";
