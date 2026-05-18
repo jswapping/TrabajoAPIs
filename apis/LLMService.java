@@ -1,6 +1,10 @@
-package ollama_java;
+package apis;
 
 import com.google.gson.JsonObject;
+
+import ollama_java.ApiClient;
+import ollama_java.ColourLovers;
+import ollama_java.JsonUtils;
 
 public class LLMService {
 

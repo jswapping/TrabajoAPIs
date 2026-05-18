@@ -1,4 +1,4 @@
-package ollama_java;
+package apis;
 
 //import java.io.ByteArrayInputStream;
 import java.net.URI;
@@ -88,9 +88,10 @@ public class Wallapop {
 					.getAsJsonObject("data")
 					.getAsJsonObject("section")
 					.getAsJsonObject("payload")
-					.getAsJsonArray("items"); // Los items son una array de elementos json
+					.getAsJsonArray("items"); // Los items son una Json Array de elementos json
 			
 			for (JsonElement jo : items) {
+				// JsonElement -> JsonObject
 				JsonObject item = jo.getAsJsonObject();
 				JsonObject result = new JsonObject();
 				
@@ -99,7 +100,7 @@ public class Wallapop {
 	            result.addProperty("price",item.getAsJsonObject("price").get("amount").getAsDouble());
 	            result.addProperty("currency",item.getAsJsonObject("price").get("currency").getAsString());
 	            result.addProperty("city",item.getAsJsonObject("location").get("city").getAsString());
-	            result.addProperty("image",item.getAsJsonArray("images").get(0).getAsJsonObject().getAsJsonObject("urls").get("medium").getAsString());
+	            //result.addProperty("image",item.getAsJsonArray("images").get(0).getAsJsonObject().getAsJsonObject("urls").get("medium").getAsString());
 	            result.addProperty("url","https://es.wallapop.com/item/" + item.get("web_slug").getAsString());
 	            result.addProperty("description",item.get("description").getAsString());
 

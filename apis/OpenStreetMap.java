@@ -1,10 +1,12 @@
-package ollama_java;
+package apis;
 
 import java.net.URI;
 import java.net.http.*;
 
 
 import com.google.gson.*;
+
+import ollama_java.JsonUtils;
 
 public class OpenStreetMap {
 	// https://nominatim.openstreetmap.org/search?q=Sevilla+Espa%C3%B1a&format=json
@@ -55,7 +57,7 @@ public class OpenStreetMap {
 		this.respuestaPeticion = JsonParser.parseString(body).getAsJsonArray();
 	}
 	
-	// Generado con Gemini: Le pedí como calcular el radio en km aproximado de un lugar en función de sus medias de latitud y longitud:     
+	// Generado con Gemini: Le pedí como calcular el radio en km aproximado de un lugar en función de sus limites de latitud y longitud:     
 	//	"boundingbox": [
 	//    "37.1868230",
 	//    "37.3903553",
@@ -83,7 +85,7 @@ public class OpenStreetMap {
 	             * Math.sin(dLon/2) * Math.sin(dLon/2);
 
 	    double radio = R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-	    return (int) Math.round(radio) + 15; // le añado 15 para que salgan más resultados
+	    return (int) Math.round(radio) + 10; // le añado 10 para que salgan más resultados
 	}
 	
 	public String getCiudad() {
